@@ -1,0 +1,44 @@
+package cn.e3mall.order.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import cn.e3mall.common.jedis.JedisClient;
+import cn.e3mall.common.utils.E3Result;
+import cn.e3mall.mapper.TbOrderItemMapper;
+import cn.e3mall.mapper.TbOrderMapper;
+import cn.e3mall.mapper.TbOrderShippingMapper;
+import cn.e3mall.order.pojo.OrderInfo;
+import cn.e3mall.order.service.OrderService;
+
+/**
+ * 订单服务层
+ * <p>Title: OrderServiceImpl</p>
+ * <p>Description: </p>
+ * <p>Company: www.itcast.cn</p> 
+ * @version 1.0
+ */
+@Service
+public class OrderServiceImpl implements OrderService {
+	@Autowired
+	private TbOrderMapper orderMapper;
+	@Autowired
+	private TbOrderItemMapper orderItemMapper;
+	@Autowired
+	private TbOrderShippingMapper orderShippingMapper;
+	@Autowired
+	private JedisClient jedisClient;
+	
+	@Value("${ORDER_ID_GEN_KEY}")
+	private String ORDER_ID_GEN_KEY;
+	@Override
+	public E3Result createOrder(OrderInfo orderInfo) {
+		//生成订单号。使用redis的incr生成
+		if (!jedisClient.exists(ORDER_ID_GEN_KEY)) {
+			
+		}
+		return null;
+	}
+
+}

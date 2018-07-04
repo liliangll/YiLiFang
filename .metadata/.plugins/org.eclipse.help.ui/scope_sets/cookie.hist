@@ -1,0 +1,6 @@
+#Mon Feb 12 21:55:17 CST 2018
+__DEFAULT__=false
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.sdk.Google.master=true
+org.eclipse.help.ui.localSearch.master=true
+expression=cookie
